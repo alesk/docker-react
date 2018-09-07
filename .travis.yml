@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t aleskotnik/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run aleskotnik/docker-react npm run test -- --coverage
